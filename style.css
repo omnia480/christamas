@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+.scene {
+    perspective: 800px;
+}
+.tree {
+    position: relative;
+    height: 60vmin;
+    width: 25vmin;
+    transform-style: preserve-3d;
+    animation: spin 12s linear infinite;
+}
+.tree__light {
+    position: absolute;
+    height: 0.8vmin;
+    width: 0.8vmin;
+    border-radius: 50%;
+    left: 50%;
+    transform-style: preserve-3d;
+    transform:
+    translateX(-50%)
+    rotateY(calc(var(--rotate) * 1deg))
+    translateZ(calc( var(--y) * 0.3vmin));
+    top: calc(var(--y) * 1%);
+    box-shadow: 0 0 6px currentColor;
+}
+
+.star {
+    position: absolute;
+    top: -3vmin;
+    left: 50%;
+    transform: translateX(-50%);
+    color: gold;
+    font-size: 2.2vmin;
+    text-shadow: 0 0 15px gold;
+}
+
+@keyframes spin {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
